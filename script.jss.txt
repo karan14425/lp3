@@ -1,0 +1,20 @@
+(function(){
+  var time = 60;
+  var timerEl = document.getElementById('timer');
+  var note = document.getElementById('note');
+  var joinBtn = document.getElementById('joinBtn');
+
+  function tick(){
+    timerEl.textContent = time + 's';
+    if(time <= 0){
+      timerEl.textContent = '0s';
+      note.textContent = 'Opening Telegram...';
+      window.open(joinBtn.href,'_blank');
+      clearInterval(intv);
+    }
+    time--;
+  }
+
+  tick();
+  var intv = setInterval(tick,1000);
+})();
